@@ -68,6 +68,7 @@
           },
           "configurations": {
             "development": {
+              "aot": false,
               "main": "src/main.dev.ts",
               "polyfills": "src/polyfills.dev.ts",
               "tsConfig": "tsconfig.app.dev.json"
