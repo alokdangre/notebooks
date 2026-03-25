@@ -68,7 +68,9 @@
           },
           "configurations": {
             "development": {
-              "main": "src/main.dev.ts"
+              "main": "src/main.dev.ts",
+              "polyfills": "src/polyfills.dev.ts",
+              "tsConfig": "tsconfig.app.dev.json"
             },
             "fr": {
               "localize": [
