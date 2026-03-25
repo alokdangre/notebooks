@@ -66,6 +66,12 @@
             "namedChunks": true
           },
           "configurations": {
+            "development": {
+              "aot": false,
+              "main": "src/main.dev.ts",
+              "polyfills": "src/polyfills.dev.ts",
+              "tsConfig": "tsconfig.app.dev.json"
+            },
             "fr": {
               "localize": [
                 "fr"
@@ -108,7 +114,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "frontend:build"
+            "browserTarget": "frontend:build:development"
           },
           "configurations": {
             "production": {
