@@ -49,15 +49,15 @@ jobs:
       - name: Install Kubeflow common library dependecies
         run: |
           cd components/crud-web-apps/common/frontend/kubeflow-common-lib
-          npm i
+          npm ci
           npm run build
-          npm link ./dist/kubeflow
 
       - name: Install JWA dependencies
         run: |
           cd components/crud-web-apps/jupyter/frontend
-          npm i
-          npm link kubeflow
+          npm ci
+          rm -rf ./node_modules/kubeflow
+          cp -r ../../common/frontend/kubeflow-common-lib/dist/kubeflow ./node_modules/kubeflow
 
       - name: Run unit tests
         run: |
@@ -79,15 +79,15 @@ jobs:
       - name: Install Kubeflow common library dependecies
         run: |
           cd components/crud-web-apps/common/frontend/kubeflow-common-lib
-          npm i
+          npm ci
           npm run build
-          npm link ./dist/kubeflow
 
       - name: Install JWA dependencies
         run: |
           cd components/crud-web-apps/jupyter/frontend
-          npm i
-          npm link kubeflow
+          npm ci
+          rm -rf ./node_modules/kubeflow
+          cp -r ../../common/frontend/kubeflow-common-lib/dist/kubeflow ./node_modules/kubeflow
 
       - name: Serve UI & run Playwright tests in Chrome and Firefox
         run: |
