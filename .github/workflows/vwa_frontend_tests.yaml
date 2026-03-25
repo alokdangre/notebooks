@@ -51,12 +51,12 @@ jobs:
           cd components/crud-web-apps/common/frontend/kubeflow-common-lib
           npm ci
           npm run build
-          npm link ./dist/kubeflow
       - name: Install VWA dependencies
         run: |
           cd components/crud-web-apps/volumes/frontend
           npm ci
-          npm link kubeflow
+          rm -rf ./node_modules/kubeflow
+          cp -r ../../common/frontend/kubeflow-common-lib/dist/kubeflow ./node_modules/kubeflow
       - name: Run unit tests
         run: |
           cd components/crud-web-apps/volumes/frontend
@@ -78,12 +78,12 @@ jobs:
           cd components/crud-web-apps/common/frontend/kubeflow-common-lib
           npm ci
           npm run build
-          npm link ./dist/kubeflow
       - name: Install VWA dependencies
         run: |
           cd components/crud-web-apps/volumes/frontend
           npm ci
-          npm link kubeflow
+          rm -rf ./node_modules/kubeflow
+          cp -r ../../common/frontend/kubeflow-common-lib/dist/kubeflow ./node_modules/kubeflow
       - name: Serve UI & run Cypress tests in Chrome
         uses: cypress-io/github-action@f790eee7a50d9505912f50c2095510be7de06aa7 # v6.10.9
         with:
@@ -110,13 +110,13 @@ jobs:
           cd components/crud-web-apps/common/frontend/kubeflow-common-lib
           npm ci
           npm run build
-          npm link ./dist/kubeflow
 
       - name: Install VWA dependencies
         run: |
           cd components/crud-web-apps/volumes/frontend
           npm ci
-          npm link kubeflow
+          rm -rf ./node_modules/kubeflow
+          cp -r ../../common/frontend/kubeflow-common-lib/dist/kubeflow ./node_modules/kubeflow
 
       - name: Serve UI & run Cypress tests in Firefox
         uses: cypress-io/github-action@a55856e0e961f64708c68ddcb38fba233d164ed8 # v6
